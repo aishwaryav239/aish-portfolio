@@ -6,7 +6,7 @@ import plotly.express as px
 
 # ================= CONFIG =================
 
-client = Groq(api_key="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")
+client = Groq(api_key="")
 
 st.set_page_config(page_title="Zyra Ai", layout="wide")
 st.title("🧠 ZYRA")
