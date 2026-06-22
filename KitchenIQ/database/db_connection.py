@@ -19,10 +19,7 @@ DB_CONFIG = {
 
 
 def test_connection():
-    """
-    Test if MySQL is reachable and credentials are correct.
-    Returns (True, None) on success or (False, plain-English error) on failure.
-    """
+
     try:
         conn = mysql.connector.connect(**DB_CONFIG)
         conn.close()
@@ -44,7 +41,6 @@ def test_connection():
 
 @contextmanager
 def get_connection():
-    """Opens a connection, commits on success, rolls back on error, always closes."""
     conn = mysql.connector.connect(**DB_CONFIG)
     try:
         yield conn
@@ -57,13 +53,11 @@ def get_connection():
 
 
 def run_query(sql, params=None):
-    """Run a SELECT query → returns a pandas DataFrame."""
     with get_connection() as conn:
         return pd.read_sql(sql, conn, params=params)
 
 
 def run_write(sql, params=None):
-    """Run INSERT / UPDATE / DELETE → returns rows affected."""
     with get_connection() as conn:
         cursor = conn.cursor()
         cursor.execute(sql, params)
