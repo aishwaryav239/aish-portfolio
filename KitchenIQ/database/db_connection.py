@@ -14,7 +14,7 @@ DB_CONFIG = {
     "port":     3306,
     "database": "ekitchen",
     "user":     "root",
-    "password": "your_password_here"   # ← change this
+    "password": "aish239"   
 }
 
 
