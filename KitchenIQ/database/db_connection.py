@@ -65,7 +65,6 @@ def run_write(sql, params=None):
 
 
 def run_write_returning(sql, params=None):
-    """Run INSERT → returns the auto-generated ID of the new row."""
     with get_connection() as conn:
         cursor = conn.cursor()
         cursor.execute(sql, params)
